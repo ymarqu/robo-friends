@@ -2,6 +2,8 @@ import { Component } from 'react';
 import './App.css';
 import CardList from './CardList';
 import SearchBox from './SearchBox';
+import img from './Ripple.svg';
+import Scroll from './Scroll';
 
 
 class App extends Component {
@@ -25,7 +27,7 @@ componentDidMount(){
 }
 
 onSearchChange = (event) => {
-console.log(event.target.value)
+
 this.setState({searchfield: event.target.value})
 
 }
@@ -33,13 +35,23 @@ this.setState({searchfield: event.target.value})
     const fileredRobots = this.state.robots.filter(robots =>{
       return robots.name.toLowerCase().includes(this.state.searchfield.toLowerCase());
     })
+    if(this.state.robots.length === 0 ){
+      return(
+        <div className='loader'>
+          <img src={img} alt="loader"></img>
+        </div>
+      )
+    }else{
   return (
     <div className="App">
     <h1 className='moon-grey'>RoboFriends</h1>
     <SearchBox searchChange={this.onSearchChange} />
-     <CardList RobotList={fileredRobots} />
+    <Scroll>
+      <CardList RobotList={fileredRobots} />
+     </Scroll>
     </div>
   );
+  }
  }
 }
 

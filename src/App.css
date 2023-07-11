@@ -1,19 +1,32 @@
+
 .App {
   text-align: center;
-  height: 100vh;
+  height: 100%;
+  /* height: auto; */
+  box-sizing: border-box;
 
 }
 h1{
+  box-sizing: border-box;
   font-family: 'Nighty DEMO';
-  font-size: 6rem;
+  font-size: 5rem;
   margin-bottom: 0;
   color: gainsboro;
   letter-spacing: 6px;
+
 }
 body{
-  background-image: linear-gradient(to right bottom, rgb(47, 52, 88), rgb(227, 43, 61))
+  background-image: linear-gradient(to bottom, rgb(105, 85, 255), rgb(111, 144, 153));
 }
 input{
   width: 50%;
   margin-bottom: 2%;
+}
+.loader{
+  margin: auto auto;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
