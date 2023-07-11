@@ -1,9 +1,9 @@
 import { Component } from 'react';
 import './App.css';
-import CardList from './CardList';
-import SearchBox from './SearchBox';
+import CardList from './Components/CardList';
+import SearchBox from './Components/SearchBox';
 import img from './Ripple.svg';
-import Scroll from './Scroll';
+import Scroll from './Components/Scroll';
 
 
 class App extends Component {
@@ -32,17 +32,17 @@ this.setState({searchfield: event.target.value})
 
 }
   render(){
-    const fileredRobots = this.state.robots.filter(robots =>{
-      return robots.name.toLowerCase().includes(this.state.searchfield.toLowerCase());
+    const { robots, searchfield} = this.state;
+    const fileredRobots = robots.filter(robots =>{
+      return robots.name.toLowerCase().includes(searchfield.toLowerCase());
     })
-    if(this.state.robots.length === 0 ){
-      return(
+   return (!robots.length) ?
+     (
         <div className='loader'>
           <img src={img} alt="loader"></img>
         </div>
-      )
-    }else{
-  return (
+      ) :
+    (
     <div className="App">
     <h1 className='moon-grey'>RoboFriends</h1>
     <SearchBox searchChange={this.onSearchChange} />
@@ -51,7 +51,6 @@ this.setState({searchfield: event.target.value})
      </Scroll>
     </div>
   );
-  }
  }
 }
 
