@@ -1,3 +1,19 @@
 .App {
   text-align: center;
+  height: 100vh;
+
+}
+h1{
+  font-family: 'Nighty DEMO';
+  font-size: 6rem;
+  margin-bottom: 0;
+  color: gainsboro;
+  letter-spacing: 6px;
+}
+body{
+  background-image: linear-gradient(to right bottom, rgb(47, 52, 88), rgb(227, 43, 61))
+}
+input{
+  width: 50%;
+  margin-bottom: 2%;
 }
